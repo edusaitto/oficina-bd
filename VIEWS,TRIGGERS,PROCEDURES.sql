@@ -36,9 +36,15 @@ FROM orcamentos_nome_cliente AS o
 INNER JOIN veiculo AS v ON v.veiculo_id = o.veiculo_id WHERE mecanico_id IS NULL;
 SELECT * FROM orcamentos_incompletos;
 
+CREATE OR REPLACE VIEW modelo_veiculo AS
+SELECT m.modelo_id, v.veiculo_id, v.cliente_id, m.marca, m.modelo, v.placa, v.ano
+FROM modelo AS m
+INNER JOIN veiculo AS v ON m.modelo_id = v.modelo_id;
+SELECT * FROM modelo_veiculo;
+
 CREATE OR REPLACE VIEW veiculos_clientes_nomes AS
 SELECT v.veiculo_id, c.cliente_id, c.nome, v.placa, v.marca, v.modelo, v.ano
-FROM veiculo AS v
+FROM modelo_veiculo AS v
 INNER JOIN cliente AS c ON v.cliente_id = c.cliente_id;
 SELECT * FROM veiculos_clientes_nomes;
 

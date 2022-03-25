@@ -8,9 +8,7 @@ SELECT * FROM oficina WHERE oficina_id = 1;
 
 SELECT * FROM mecanico WHERE mecanico_id = 1;
 
-SELECT modelo FROM veiculo WHERE marca="peugeot";
-
-SELECT marca FROM veiculo GROUP BY marca;
+SELECT marca FROM modelo GROUP BY marca;
 
 SELECT valor_total, aprovado FROM orcamentos ORDER BY valor_total DESC; 
 

@@ -16,12 +16,21 @@ WHERE cliente_id=1;
 DELETE FROM cliente WHERE cliente_id=1;
 SELECT * FROM cliente;
 
-INSERT INTO veiculo (cliente_id, placa, marca, modelo, ano) VALUES (2, "ATM9444", "peugeot", "207", 2011);
-INSERT INTO veiculo (cliente_id, placa, marca, modelo, ano) VALUES (3, "ACV3321", "peugeot", "206", 2007);
-INSERT INTO veiculo (cliente_id, placa, marca, modelo, ano) VALUES (3, "FRR3B98", "mercedes", "c63", 2018);
-INSERT INTO veiculo (cliente_id, placa, marca, modelo, ano) VALUES (2, "ACP0778", "renault", "logan", 2014);
+INSERT INTO modelo (marca, modelo) VALUES ("PEUGEOT", "207");
+INSERT INTO modelo (marca, modelo) VALUES ("PEUGEOT", "206");
+INSERT INTO modelo (marca, modelo) VALUES ("VOLKSWAGEN", "GOLF");
+INSERT INTO modelo (marca, modelo) VALUES ("VOLKSWAGEN", "JETTA");
+INSERT INTO modelo (marca, modelo) VALUES ("BMW", "Z4");
+INSERT INTO modelo (marca, modelo) VALUES ("FIAT", "PUNTO");
+UPDATE modelo
+SET modelo="206"
+WHERE modelo_id=1;
+DELETE FROM modelo WHERE modelo_id=1;
+SELECT * FROM modelo;
+
+INSERT INTO veiculo (cliente_id, modelo_id, placa, ano) VALUES (14, 1, "ACO7888", 2012);
 UPDATE veiculo
-SET placa="ATM9D44"
+SET placa="ACO7G77"
 WHERE veiculo_id=1;
 DELETE FROM veiculo WHERE veiculo_id=1;
 SELECT * FROM veiculo;

@@ -1,7 +1,5 @@
 CREATE DATABASE oficina;
 
-DROP DATABASE oficina;
-
 USE oficina;
 
 CREATE TABLE oficina (
@@ -20,17 +18,25 @@ CREATE TABLE mecanico (
 ALTER TABLE mecanico ADD CONSTRAINT FK_oficina_id
 FOREIGN KEY (oficina_id) REFERENCES oficina(oficina_id);
 
+CREATE TABLE modelo (
+	modelo_id INT(5) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    marca VARCHAR(30) NOT NULL,
+    modelo VARCHAR(30) NOT NULL
+);
+
 CREATE TABLE veiculo (
 	veiculo_id INT(5) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     cliente_id INT(5) NOT NULL,
+    modelo_id INT(5) NOT NULL,
     placa VARCHAR(7) NOT NULL,
-    marca VARCHAR(30),
-    modelo VARCHAR(30),
     ano INT(4)
 );
 
 ALTER TABLE veiculo ADD CONSTRAINT FK_cliente_id
 FOREIGN KEY (cliente_id) REFERENCES cliente(cliente_id);
+
+ALTER TABLE veiculo ADD CONSTRAINT FK_modelo_id
+FOREIGN KEY (modelo_id) REFERENCES modelo(modelo_id);
 
 CREATE TABLE cliente (
 	cliente_id INT(5) NOT NULL AUTO_INCREMENT PRIMARY KEY,
